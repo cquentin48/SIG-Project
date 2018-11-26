@@ -1,0 +1,1896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1"> 
+<Document> 
+<Style id="busLineIcon1">
+<IconStyle id="busLineIcon1">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l1/90587-1-fre-FR/L1_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>0566A1</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon2">
+<IconStyle id="busLineIcon2">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l2/90524-1-fre-FR/L2_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>E2392F</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon3">
+<IconStyle id="busLineIcon3">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l3/90533-1-fre-FR/L3_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>F9EA44</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon4">
+<IconStyle id="busLineIcon4">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l4/90542-1-fre-FR/L4_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>9AC138</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon5">
+<IconStyle id="busLineIcon5">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne/ligne-5a/87925-4-fre-FR/Ligne-5A_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>2DBAEB</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon6">
+<IconStyle id="busLineIcon6">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l6/90560-1-fre-FR/L6_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>BA7EB1</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon7">
+<IconStyle id="busLineIcon7">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l7/90569-1-fre-FR/L7_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>F19315</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon21">
+<IconStyle id="busLineIcon21">
+<Icon>
+<href>http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l21/90578-1-fre-FR/L21_format_18x18.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color>94C36A</color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Style id="busLineIcon0">
+<IconStyle id="busLineIcon0">
+<Icon>
+<href>http://maps.google.com/mapfiles/kml/shapes/info_circle.png</href>
+</Icon>
+</IconStyle>
+<LineStyle>
+<color></color>
+<width>4</width>
+</LineStyle>
+</Style>
+<Placemark id="placemarkRevermont">
+<name>Revermont</name>
+<description>Arrêt de bus n°1|Revermont | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.241573,46.210953</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGrangesBardes">
+<name>Granges Bardes</name>
+<description>Arrêt de bus n°2|Granges Bardes | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.239347,46.216393</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGrandChalles">
+<name>Grand Challes</name>
+<description>Arrêt de bus n°3|Grand Challes | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.235753,46.218601</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkOyards">
+<name>Oyards</name>
+<description>Arrêt de bus n°4|Oyards | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.234127,46.223392</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGrangesRollet">
+<name>Granges Rollet</name>
+<description>Arrêt de bus n°5|Granges Rollet | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.23448,46.221321</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkTilleuls">
+<name>Tilleuls</name>
+<description>Arrêt de bus n°6|Tilleuls | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.233815,46.218506</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkChevrier">
+<name>Chevrier</name>
+<description>Arrêt de bus n°7|Chevrier | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.233917,46.215565</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Cimetière</name>
+<description>Arrêt de bus n°8|Cimetière | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.234539,46.214268</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkSchuman">
+<name>Schuman</name>
+<description>Arrêt de bus n°9|Schuman | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.230887,46.212696</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkDunant">
+<name>Dunant</name>
+<description>Arrêt de bus n°10|Dunant | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.230072,46.211655</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkJeanMoulin">
+<name>Jean Moulin</name>
+<description>Arrêt de bus n°11|Jean Moulin | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.230115,46.210667</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°12|Carré Amiot | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.227554,46.207497</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Charité Université</name>
+<description>Arrêt de bus n°13|Charité Université | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.220464,46.20768</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkQuinconces">
+<name>Quinconces</name>
+<description>Arrêt de bus n°14|Quinconces | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.218618,46.203621</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkObservatoire">
+<name>Observatoire </name>
+<description>Arrêt de bus n°15|Observatoire  | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.2182,46.202755</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVictoireGare">
+<name>Victoire Gare</name>
+<description>Arrêt de bus n°16|Victoire Gare | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.215044,46.201694</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBaudin">
+<name>Baudin</name>
+<description>Arrêt de bus n°17|Baudin | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.218574,46.200638</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVoltaire">
+<name>Voltaire</name>
+<description>Arrêt de bus n°18|Voltaire | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.220666,46.200653</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkLabalme">
+<name>Labalme</name>
+<description>Arrêt de bus n°19|Labalme | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.225301,46.200401</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Bourg-Lycée</name>
+<description>Arrêt de bus n°20|Bourg-Lycée | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.225723,46.1982</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPleinSoleil">
+<name>Plein Soleil</name>
+<description>Arrêt de bus n°21|Plein Soleil | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.225383,46.195892</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkStRock">
+<name>St Rock</name>
+<description>Arrêt de bus n°22|St Rock | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.225011,46.193909</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>La Bruyère</name>
+<description>Arrêt de bus n°23|La Bruyère | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.226242,46.190197</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVennes">
+<name>Vennes</name>
+<description>Arrêt de bus n°24|Vennes | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.226944,46.188503</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkRousseau">
+<name>Rousseau</name>
+<description>Arrêt de bus n°25|Rousseau | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.224562,46.187672</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkChartreuse">
+<name>Chartreuse</name>
+<description>Arrêt de bus n°26|Chartreuse | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.226609,46.185635</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVerlaine">
+<name>Verlaine</name>
+<description>Arrêt de bus n°27|Verlaine | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.227006,46.184502</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkSeillonCFA">
+<name>Seillon CFA</name>
+<description>Arrêt de bus n°28|Seillon CFA | Ligne n°1</description>
+<styleUrl>#busLine1</styleUrl>
+<Point>
+<coordinates>5.228948,46.186165</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Norélan</name>
+<description>Arrêt de bus n°29|Norélan | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.244226,46.221333</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPlan">
+<name>Plan</name>
+<description>Arrêt de bus n°30|Plan | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.249265,46.218971</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkParme">
+<name>Parme</name>
+<description>Arrêt de bus n°31|Parme | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.24712,46.216934</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkAlimentec">
+<name>Alimentec</name>
+<description>Arrêt de bus n°32|Alimentec | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.243917,46.215305</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGendarmerie">
+<name>Gendarmerie</name>
+<description>Arrêt de bus n°33|Gendarmerie | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.24152,46.212948</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCentreNautique">
+<name>Centre Nautique</name>
+<description>Arrêt de bus n°34|Centre Nautique | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.238424,46.209812</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkEurope">
+<name>Europe</name>
+<description>Arrêt de bus n°35|Europe | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.233722,46.208794</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°36|Carré Amiot | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.227682,46.207352</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Charité Université</name>
+<description>Arrêt de bus n°37|Charité Université | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.220491,46.207664</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkQuinconces">
+<name>Quinconces</name>
+<description>Arrêt de bus n°38|Quinconces | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.218699,46.203312</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Gare</name>
+<description>Arrêt de bus n°39|Sémard Gare | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.215577,46.199993</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Jaurès</name>
+<description>Arrêt de bus n°40|Sémard Jaurès | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.216403,46.19685</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFerry">
+<name>Ferry</name>
+<description>Arrêt de bus n°41|Ferry | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.220288,46.195793</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCrouy">
+<name>Crouy</name>
+<description>Arrêt de bus n°42|Crouy | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.22291,46.195553</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPleinSoleil">
+<name>Plein Soleil</name>
+<description>Arrêt de bus n°43|Plein Soleil | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.226573,46.195206</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Valéry</name>
+<description>Arrêt de bus n°44|Valéry | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.22922,46.195248</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Collège Riboud</name>
+<description>Arrêt de bus n°45|Collège Riboud | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.22987,46.194771</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkStand">
+<name>Stand</name>
+<description>Arrêt de bus n°46|Stand | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.232552,46.191654</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Molière</name>
+<description>Arrêt de bus n°47|Molière | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.233505,46.190136</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Aéroplanes</name>
+<description>Arrêt de bus n°48|Aéroplanes | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.235901,46.19075</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPetitesVennes">
+<name>Petites Vennes</name>
+<description>Arrêt de bus n°49|Petites Vennes | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.238986,46.191044</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVennesStade">
+<name>Vennes Stade</name>
+<description>Arrêt de bus n°50|Vennes Stade | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.237361,46.188297</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkButte">
+<name>Butte</name>
+<description>Arrêt de bus n°51|Butte | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.236998,46.186954</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkOrmeaux">
+<name>Ormeaux</name>
+<description>Arrêt de bus n°52|Ormeaux | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.239324,46.185036</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkAinterexpo">
+<name>Ainterexpo</name>
+<description>Arrêt de bus n°53|Ainterexpo | Ligne n°2</description>
+<styleUrl>#busLine2</styleUrl>
+<Point>
+<coordinates>5.241676,46.186874</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkAlagnier">
+<name>Alagnier</name>
+<description>Arrêt de bus n°54|Alagnier | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.24579,46.188313</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMistral">
+<name>Mistral</name>
+<description>Arrêt de bus n°55|Mistral | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.265224,46.196495</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCurtafray">
+<name>Curtafray</name>
+<description>Arrêt de bus n°56|Curtafray | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.260663,46.197891</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Loëze</name>
+<description>Arrêt de bus n°57|Loëze | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.256668,46.199207</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPennessuy">
+<name>Pennessuy</name>
+<description>Arrêt de bus n°58|Pennessuy | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.254592,46.199837</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPicasso">
+<name>Picasso</name>
+<description>Arrêt de bus n°59|Picasso | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.250374,46.201221</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Abbé Gringoz</name>
+<description>Arrêt de bus n°60|Abbé Gringoz | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.247498,46.20203</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCroixBlanche">
+<name>Croix Blanche</name>
+<description>Arrêt de bus n°61|Croix Blanche | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.24388,46.203156</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Baudière</name>
+<description>Arrêt de bus n°62|Baudière | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.239231,46.204567</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkJura">
+<name>Jura</name>
+<description>Arrêt de bus n°63|Jura | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.236716,46.205353</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMaquis">
+<name>Maquis</name>
+<description>Arrêt de bus n°64|Maquis | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.233196,46.205925</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkRobin">
+<name>Robin</name>
+<description>Arrêt de bus n°65|Robin | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.231823,46.205925</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°66|Carré Amiot | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.227926,46.207367</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Charité Université</name>
+<description>Arrêt de bus n°67|Charité Université | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.220609,46.207783</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkQuinconces">
+<name>Quinconces</name>
+<description>Arrêt de bus n°68|Quinconces | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.218759,46.203716</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Préfecture</name>
+<description>Arrêt de bus n°69|Préfecture | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.221935,46.203197</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBaudin">
+<name>Baudin</name>
+<description>Arrêt de bus n°70|Baudin | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.218843,46.200665</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Gare</name>
+<description>Arrêt de bus n°71|Sémard Gare | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.21551,46.200123</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Jaurès</name>
+<description>Arrêt de bus n°72|Sémard Jaurès | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.216368,46.197041</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBerthelot">
+<name>Berthelot</name>
+<description>Arrêt de bus n°73|Berthelot | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.213548,46.193378</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGiroddel'Ain">
+<name>Girod de l'Ain</name>
+<description>Arrêt de bus n°74|Girod de l'Ain | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.211676,46.19194</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBauvard">
+<name>Bauvard</name>
+<description>Arrêt de bus n°75|Bauvard | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.208737,46.19165</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Côtes</name>
+<description>Arrêt de bus n°76|Côtes | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.206988,46.191376</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPagneux">
+<name>Pagneux</name>
+<description>Arrêt de bus n°77|Pagneux | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.209386,46.18959</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGrandesBonnet">
+<name>Grandes Bonnet</name>
+<description>Arrêt de bus n°78|Grandes Bonnet | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.209053,46.187458</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkTyrandes">
+<name>Tyrandes</name>
+<description>Arrêt de bus n°79|Tyrandes | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.207905,46.185795</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBellevue">
+<name>Bellevue</name>
+<description>Arrêt de bus n°80|Bellevue | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.205533,46.182858</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Péronnas Mairie</name>
+<description>Arrêt de bus n°81|Péronnas Mairie | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.205233,46.18182</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Chênaie</name>
+<description>Arrêt de bus n°82|Chênaie | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.206504,46.181587</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Vieux Chêne</name>
+<description>Arrêt de bus n°83|Vieux Chêne | Ligne n°3</description>
+<styleUrl>#busLine3</styleUrl>
+<Point>
+<coordinates>5.209272,46.181908</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>St Denis Collège</name>
+<description>Arrêt de bus n°84|St Denis Collège | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.195694,46.203674</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkStDenisCentre">
+<name>St Denis Centre</name>
+<description>Arrêt de bus n°85|St Denis Centre | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.191838,46.202702</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkStDenisMairie">
+<name>St Denis Mairie</name>
+<description>Arrêt de bus n°86|St Denis Mairie | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.189797,46.202087</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Flèches</name>
+<description>Arrêt de bus n°87|Flèches | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.190737,46.199959</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGrangeMaman">
+<name>Grange Maman</name>
+<description>Arrêt de bus n°88|Grange Maman | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.193863,46.200256</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Fruitière</name>
+<description>Arrêt de bus n°89|Fruitière | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.199289,46.20076</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPrintemps">
+<name>Printemps</name>
+<description>Arrêt de bus n°90|Printemps | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.203435,46.201183</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPetitMontholon">
+<name>Petit Montholon</name>
+<description>Arrêt de bus n°91|Petit Montholon | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.207386,46.202091</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkLilas">
+<name>Lilas</name>
+<description>Arrêt de bus n°92|Lilas | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.209121,46.204227</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMail">
+<name>Mail</name>
+<description>Arrêt de bus n°93|Mail | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.212194,46.202126</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Gare</name>
+<description>Arrêt de bus n°94|Sémard Gare | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.215529,46.200047</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVictoireGare">
+<name>Victoire Gare</name>
+<description>Arrêt de bus n°95|Victoire Gare | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.215044,46.201694</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkObservatoire">
+<name>Observatoire</name>
+<description>Arrêt de bus n°96|Observatoire | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.217645,46.202621</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkQuinconces">
+<name>Quinconces</name>
+<description>Arrêt de bus n°97|Quinconces | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.218682,46.203632</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Charité Université</name>
+<description>Arrêt de bus n°98|Charité Université | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.220401,46.207573</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°99|Carré Amiot | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.228174,46.207378</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkJoliotCurie">
+<name>Joliot Curie</name>
+<description>Arrêt de bus n°100|Joliot Curie | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.233699,46.208813</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCentreNautique">
+<name>Centre Nautique</name>
+<description>Arrêt de bus n°101|Centre Nautique | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.234411,46.207527</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Pré Neuf</name>
+<description>Arrêt de bus n°102|Pré Neuf | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.238305,46.209862</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkDimes">
+<name>Dimes</name>
+<description>Arrêt de bus n°103|Dimes | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.241136,46.207668</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPetitChalles">
+<name>Petit Challes </name>
+<description>Arrêt de bus n°104|Petit Challes  | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.241951,46.20723</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkRevermont">
+<name>Revermont</name>
+<description>Arrêt de bus n°105|Revermont | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.243783,46.20808</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBeauSite">
+<name>Beau Site</name>
+<description>Arrêt de bus n°106|Beau Site | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.244153,46.211246</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCliniqueConvert">
+<name>Clinique Convert</name>
+<description>Arrêt de bus n°107|Clinique Convert | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.247139,46.211239</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Lycée Agricole</name>
+<description>Arrêt de bus n°108|Lycée Agricole | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.253822,46.211567</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Dévorah</name>
+<description>Arrêt de bus n°109|Dévorah | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.256784,46.211578</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkStadeDeguin">
+<name>Stade Deguin</name>
+<description>Arrêt de bus n°110|Stade Deguin | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.258761,46.20779</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkEREALaChagne">
+<name>EREA La Chagne</name>
+<description>Arrêt de bus n°111|EREA La Chagne | Ligne n°4</description>
+<styleUrl>#busLine4</styleUrl>
+<Point>
+<coordinates>5.265469,46.20776</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Gare</name>
+<description>Arrêt de bus n°112|Sémard Gare | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.270505,46.205956</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Jaurès</name>
+<description>Arrêt de bus n°113|Sémard Jaurès | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.216323,46.175201</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPeloux">
+<name>Peloux</name>
+<description>Arrêt de bus n°114|Peloux | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.214756,46.197029</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPelouxGare">
+<name>Peloux Gare</name>
+<description>Arrêt de bus n°115|Peloux Gare | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.213662,46.199467</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkClos">
+<name>Clos</name>
+<description>Arrêt de bus n°116|Clos | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.210508,46.198917</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Teyssonière</name>
+<description>Arrêt de bus n°117|Teyssonière | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.210443,46.196629</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMontholon">
+<name>Montholon</name>
+<description>Arrêt de bus n°118|Montholon | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.209993,46.194595</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkRolandGarros">
+<name>Roland Garros</name>
+<description>Arrêt de bus n°119|Roland Garros | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.207632,46.193451</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPascal">
+<name>Pascal</name>
+<description>Arrêt de bus n°120|Pascal | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.204371,46.193138</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBouvreuils">
+<name>Bouvreuils</name>
+<description>Arrêt de bus n°121|Bouvreuils | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.203512,46.195782</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVivaldi">
+<name>Vivaldi</name>
+<description>Arrêt de bus n°122|Vivaldi | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.203427,46.197803</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCharpine">
+<name>Charpine</name>
+<description>Arrêt de bus n°123|Charpine | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.202611,46.200771</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Fruitière</name>
+<description>Arrêt de bus n°124|Fruitière | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.199221,46.200802</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGrangeMaman">
+<name>Grange Maman</name>
+<description>Arrêt de bus n°125|Grange Maman | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.193878,46.200268</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Flèches</name>
+<description>Arrêt de bus n°126|Flèches | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.190852,46.199955</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkStDenisMairie">
+<name>St Denis Mairie</name>
+<description>Arrêt de bus n°127|St Denis Mairie | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.189844,46.20208</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkStDenisCentre">
+<name>St Denis Centre</name>
+<description>Arrêt de bus n°128|St Denis Centre | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.191882,46.202702</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>St Denis Collège</name>
+<description>Arrêt de bus n°129|St Denis Collège | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.195466,46.203606</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Chalandré</name>
+<description>Arrêt de bus n°130|Chalandré | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.197774,46.207771</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkSemailles">
+<name>Semailles</name>
+<description>Arrêt de bus n°131|Semailles | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.198032,46.209789</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCadalles">
+<name>Cadalles</name>
+<description>Arrêt de bus n°132|Cadalles | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.197386,46.213707</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkOurres">
+<name>Ourres</name>
+<description>Arrêt de bus n°133|Ourres | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.200893,46.213615</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCalidon">
+<name>Calidon</name>
+<description>Arrêt de bus n°134|Calidon | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.206222,46.21431</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Leclanché</name>
+<description>Arrêt de bus n°135|Leclanché | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.206833,46.215771</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Chambière Nord</name>
+<description>Arrêt de bus n°136|Chambière Nord | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.204423,46.22324</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Chambière Hotel</name>
+<description>Arrêt de bus n°137|Chambière Hotel | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.204777,46.222095</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGay-Lussac">
+<name>Gay-Lussac</name>
+<description>Arrêt de bus n°138|Gay-Lussac | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.209543,46.219364</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkHopitalFleyriat">
+<name>Hopital Fleyriat</name>
+<description>Arrêt de bus n°139|Hopital Fleyriat | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.211088,46.22448</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVareys">
+<name>Vareys</name>
+<description>Arrêt de bus n°140|Vareys | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.209167,46.221844</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFort">
+<name>Fort</name>
+<description>Arrêt de bus n°141|Fort | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.211906,46.218967</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkNeuve">
+<name>Neuve</name>
+<description>Arrêt de bus n°142|Neuve | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.214846,46.215298</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBoule">
+<name>Boule</name>
+<description>Arrêt de bus n°143|Boule | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.218751,46.217022</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkSeguin">
+<name>Seguin</name>
+<description>Arrêt de bus n°144|Seguin | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.220983,46.214691</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Pont des chèvres</name>
+<description>Arrêt de bus n°145|Pont des chèvres | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.221682,46.212566</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBlanchisseries">
+<name>Blanchisseries</name>
+<description>Arrêt de bus n°146|Blanchisseries | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.224429,46.21175</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Moulin de Rozières</name>
+<description>Arrêt de bus n°147|Moulin de Rozières | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.22754,46.210995</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°148|Carré Amiot | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.22769,46.207474</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVicaire">
+<name>Vicaire</name>
+<description>Arrêt de bus n°149|Vicaire | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.224472,46.207951</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Charité Université</name>
+<description>Arrêt de bus n°150|Charité Université | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.219664,46.207607</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkJarrin">
+<name>Jarrin</name>
+<description>Arrêt de bus n°151|Jarrin | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.216016,46.207668</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVoisin">
+<name>Voisin</name>
+<description>Arrêt de bus n°152|Voisin | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.213312,46.20673</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMas">
+<name>Mas</name>
+<description>Arrêt de bus n°153|Mas | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.213892,46.2048</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCitadelle">
+<name>Citadelle</name>
+<description>Arrêt de bus n°154|Citadelle | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.21505,46.203079</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVictoireGare">
+<name>Victoire Gare</name>
+<description>Arrêt de bus n°155|Victoire Gare | Ligne n°5</description>
+<styleUrl>#busLine5</styleUrl>
+<Point>
+<coordinates>5.215082,46.201565</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkAinterexpo">
+<name>Ainterexpo</name>
+<description>Arrêt de bus n°156|Ainterexpo | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.255255,46.188065</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGirolles">
+<name>Girolles</name>
+<description>Arrêt de bus n°157|Girolles | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.248147,46.189579</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBouventPlage">
+<name>Bouvent Plage</name>
+<description>Arrêt de bus n°158|Bouvent Plage | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.25656,46.192307</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkNarcisses">
+<name>Narcisses</name>
+<description>Arrêt de bus n°159|Narcisses | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.248785,46.191391</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPlatanes">
+<name>Platanes</name>
+<description>Arrêt de bus n°160|Platanes | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.243612,46.191147</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCharmettes">
+<name>Charmettes</name>
+<description>Arrêt de bus n°161|Charmettes | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.241868,46.191181</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFerret">
+<name>Ferret</name>
+<description>Arrêt de bus n°162|Ferret | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.236549,46.196396</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Monastère de Brou</name>
+<description>Arrêt de bus n°163|Monastère de Brou | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.235149,46.197975</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkGraves">
+<name>Graves</name>
+<description>Arrêt de bus n°164|Graves | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.234778,46.198441</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Hôtel Dieu</name>
+<description>Arrêt de bus n°165|Hôtel Dieu | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.233809,46.199596</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFontanettes">
+<name>Fontanettes</name>
+<description>Arrêt de bus n°166|Fontanettes | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.231367,46.202534</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBonsEnfants">
+<name>Bons Enfants</name>
+<description>Arrêt de bus n°167|Bons Enfants | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.229032,46.205444</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°168|Carré Amiot | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.227575,46.207775</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Moulin de Rozières</name>
+<description>Arrêt de bus n°169|Moulin de Rozières | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.227501,46.211315</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCanal">
+<name>Canal</name>
+<description>Arrêt de bus n°170|Canal | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.22745,46.214512</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCuvier">
+<name>Cuvier</name>
+<description>Arrêt de bus n°171|Cuvier | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.22787,46.219238</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMiche">
+<name>Miche</name>
+<description>Arrêt de bus n°172|Miche | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.226763,46.220993</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Dépôt TUB</name>
+<description>Arrêt de bus n°173|Dépôt TUB | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.222464,46.223347</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMarboz">
+<name>Marboz</name>
+<description>Arrêt de bus n°174|Marboz | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.22828,46.22776</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCPA">
+<name>CPA</name>
+<description>Arrêt de bus n°175|CPA | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.228396,46.23558</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCastel">
+<name>Castel</name>
+<description>Arrêt de bus n°176|Castel | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.229429,46.232285</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPerrinche">
+<name>Perrinche</name>
+<description>Arrêt de bus n°177|Perrinche | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.228447,46.23521</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFeuillesVertes">
+<name>Feuilles Vertes</name>
+<description>Arrêt de bus n°178|Feuilles Vertes | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.224529,46.243053</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Viriat Vernée</name>
+<description>Arrêt de bus n°179|Viriat Vernée | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.219865,46.243973</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkChampagne">
+<name>Champagne</name>
+<description>Arrêt de bus n°180|Champagne | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.218847,46.246063</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Gelière</name>
+<description>Arrêt de bus n°181|Gelière | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.218917,46.248245</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Château</name>
+<description>Arrêt de bus n°182|Château | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.218496,46.250381</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkJayr">
+<name>Jayr</name>
+<description>Arrêt de bus n°183|Jayr | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.21698,46.252495</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkViriatMairie">
+<name>Viriat Mairie</name>
+<description>Arrêt de bus n°184|Viriat Mairie | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.217155,46.255043</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Viriat Écoles</name>
+<description>Arrêt de bus n°185|Viriat Écoles | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.215927,46.253296</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVIRIATCaronniers">
+<name>VIRIAT Caronniers</name>
+<description>Arrêt de bus n°186|VIRIAT Caronniers | Ligne n°6</description>
+<styleUrl>#busLine6</styleUrl>
+<Point>
+<coordinates>5.211509,46.252174</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°187|Carré Amiot | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.2276,46.207344</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVicaire">
+<name>Vicaire</name>
+<description>Arrêt de bus n°188|Vicaire | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.224697,46.20787</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkSchweitzer">
+<name>Schweitzer</name>
+<description>Arrêt de bus n°189|Schweitzer | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.220419,46.209015</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Mâcon</name>
+<description>Arrêt de bus n°190|Mâcon | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.218691,46.210884</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkParc">
+<name>Parc</name>
+<description>Arrêt de bus n°191|Parc | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.216747,46.213093</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkNeuve">
+<name>Neuve</name>
+<description>Arrêt de bus n°192|Neuve | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.214553,46.215099</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFort">
+<name>Fort</name>
+<description>Arrêt de bus n°193|Fort | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.211882,46.21891</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkEcluses">
+<name>Ecluses</name>
+<description>Arrêt de bus n°194|Ecluses | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.214963,46.218559</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkValvert">
+<name>Valvert</name>
+<description>Arrêt de bus n°195|Valvert | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.216127,46.221535</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkLiavoles">
+<name>Liavoles</name>
+<description>Arrêt de bus n°196|Liavoles | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.217268,46.22562</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkMajornas">
+<name>Majornas</name>
+<description>Arrêt de bus n°197|Majornas | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.218917,46.227161</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkArago">
+<name>Arago</name>
+<description>Arrêt de bus n°198|Arago | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.223305,46.227695</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkBuidon">
+<name>Buidon</name>
+<description>Arrêt de bus n°199|Buidon | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.228569,46.227749</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCPA">
+<name>CPA</name>
+<description>Arrêt de bus n°200|CPA | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.229517,46.228367</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCastel">
+<name>Castel</name>
+<description>Arrêt de bus n°201|Castel | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.229429,46.232285</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPerrinche">
+<name>Perrinche</name>
+<description>Arrêt de bus n°202|Perrinche | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.228447,46.23521</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFeuillesVertes">
+<name>Feuilles Vertes</name>
+<description>Arrêt de bus n°203|Feuilles Vertes | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.224529,46.243053</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Viriat Vernée</name>
+<description>Arrêt de bus n°204|Viriat Vernée | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.219865,46.243973</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkChampagne">
+<name>Champagne</name>
+<description>Arrêt de bus n°205|Champagne | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.218847,46.246063</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Gelière</name>
+<description>Arrêt de bus n°206|Gelière | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.218917,46.248245</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Château</name>
+<description>Arrêt de bus n°207|Château | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.218496,46.250381</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkJayr">
+<name>Jayr</name>
+<description>Arrêt de bus n°208|Jayr | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.21698,46.252495</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkViriatMairie">
+<name>Viriat Mairie</name>
+<description>Arrêt de bus n°209|Viriat Mairie | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.217155,46.255043</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Viriat Écoles</name>
+<description>Arrêt de bus n°210|Viriat Écoles | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.215927,46.253296</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkVIRIATCaronniers">
+<name>VIRIAT Caronniers</name>
+<description>Arrêt de bus n°211|VIRIAT Caronniers | Ligne n°7</description>
+<styleUrl>#busLine7</styleUrl>
+<Point>
+<coordinates>5.211509,46.252174</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPelouxGare">
+<name>Peloux Gare</name>
+<description>Arrêt de bus n°212|Peloux Gare | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.21354,46.199829</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkPeloux">
+<name>Peloux</name>
+<description>Arrêt de bus n°213|Peloux | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.214783,46.196808</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkFerry">
+<name>Ferry</name>
+<description>Arrêt de bus n°214|Ferry | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.220061,46.195835</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkCrouy">
+<name>Crouy</name>
+<description>Arrêt de bus n°215|Crouy | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.223634,46.195503</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Valéry</name>
+<description>Arrêt de bus n°216|Valéry | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.228462,46.195251</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkArbelles">
+<name>Arbelles</name>
+<description>Arrêt de bus n°217|Arbelles | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.234234,46.194962</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkProvidence">
+<name>Providence</name>
+<description>Arrêt de bus n°218|Providence | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.24012,46.197739</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkSources">
+<name>Sources</name>
+<description>Arrêt de bus n°219|Sources | Ligne n°21</description>
+<styleUrl>#busLine21</styleUrl>
+<Point>
+<coordinates>5.24781,46.196621</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Carré Amiot</name>
+<description>Arrêt de bus n°231|Carré Amiot | Ligne n°0</description>
+<styleUrl>#busLine0</styleUrl>
+<Point>
+<coordinates>5.227743,46.207455</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Charité Université</name>
+<description>Arrêt de bus n°232|Charité Université | Ligne n°0</description>
+<styleUrl>#busLine0</styleUrl>
+<Point>
+<coordinates>5.220326,46.207661</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemarkQuinconces">
+<name>Quinconces</name>
+<description>Arrêt de bus n°233|Quinconces | Ligne n°0</description>
+<styleUrl>#busLine0</styleUrl>
+<Point>
+<coordinates>5.218689,46.203571</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Gare</name>
+<description>Arrêt de bus n°258|Sémard Gare | Ligne n°0</description>
+<styleUrl>#busLine0</styleUrl>
+<Point>
+<coordinates>5.22928,46.201527</coordinates>
+</Point>
+</Placemark>
+<Placemark id="placemark">
+<name>Sémard Jaurès</name>
+<description>Arrêt de bus n°259|Sémard Jaurès | Ligne n°0</description>
+<styleUrl>#busLine0</styleUrl>
+<Point>
+<coordinates>5.216365,46.189697</coordinates>
+</Point>
+</Placemark>
+</Document>
+</kml>
