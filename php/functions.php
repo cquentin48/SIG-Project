@@ -52,7 +52,7 @@
 	
 	/**
 	* Database initialisation
-	@return database initialised
+	* @return database initialised
 	*/
 	function initDatabase(){
 		$servername = "localhost";
@@ -109,19 +109,22 @@
 		
 		$busLinesColor = array();
 		
-		$busLinesColor[] = "0566A1";
-		$busLinesColor[] = "E2392F";		
-		$busLinesColor[] = "F9EA44";		
-		$busLinesColor[] = "9AC138";		
-		$busLinesColor[] = "2DBAEB";		
-		$busLinesColor[] = "BA7EB1";		
-		$busLinesColor[] = "F19315";		
-		$busLinesColor[] = "94C36A";		
+		$busLinesColor[1] = "0566A1";
+		$busLinesColor[2] = "E2392F";		
+		$busLinesColor[3] = "F9EA44";		
+		$busLinesColor[4] = "9AC138";		
+		$busLinesColor[5] = "2DBAEB";		
+		$busLinesColor[6] = "BA7EB1";		
+		$busLinesColor[7] = "F19315";		
+		$busLinesColor[21] = "94C36A";		
+		$busLinesColor[0] = "94C36A";		
 		
 		$kml = array();
 		$kml[] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 		$kml[] = "<kml xmlns=\"http://earth.google.com/kml/2.1\"> ";
 		$kml[] = "<Document> ";
+		$kml[] = "<name>Sig Projects</name>";
+		$kml[] = "<description>Project done for the SIG lesson. Done by Noe Colin and Quentin CHAPEL</description>";
 		
 		foreach($busLines as $key => $aLineBus){
 			$kml[] = '<Style id="busLineIcon'.$aLineBus.'">';
@@ -132,10 +135,19 @@
 			$kml[] = '</Icon>';
 			$kml[] = '</IconStyle>';
 			
+			$kml[] = '</Style>';
+
+
+			$kml[] = '<Style id="busLineColor'.$aLineBus.'">';
+			
 			$kml[] = '<LineStyle>';
-			$kml[] = '<color>#'.$busLinesColor[$key].'</color>';
+			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
 			$kml[] = '<width>4</width>';
 			$kml[] = '</LineStyle>';
+			$kml[] = '<PolyStyle>';
+			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
+			$kml[] = '<width>4</width>';
+			$kml[] = '</PolyStyle>';
 			
 			$kml[] = '</Style>';
 		}
@@ -146,10 +158,36 @@
 			$kml[] = '<Placemark id="placemark' . $kmlStopId . '">';
 			$kml[] = '<name>' . $aPoint['Nom'] . '</name>';
 			$kml[] = '<description>Arrêt de bus n°'.$pointKey . "|" . $aPoint['Nom']. ' | ' . 'Ligne n°' . $aPoint['busLinesId'] . '</description>';
-			$kml[] = '<styleUrl>#busLine'.$aPoint['busLinesId'].'</styleUrl>';
+			$kml[] = '<styleUrl>#busLineIcon'.$aPoint['busLinesId'].'</styleUrl>';
 			$kml[] = '<Point>';
 			$kml[] = '<coordinates>' . $aPoint['Longitude'] . ','  . $aPoint['Latitude'] . '</coordinates>';
 			$kml[] = '</Point>';
+			$kml[] = '</Placemark>';
+		}
+		
+		foreach($busLinesColor as $busLineKey => $aLine) 
+		{
+			$kml[] = '<Placemark>';
+			$kml[] = '<name>Ligne n°'.$busLineKey.'</name>';
+			$kml[] = '<description>Ligne de bus n°'.$busLineKey.'</description>';
+			$kml[] = '<styleUrl>#busLineColor'.$busLineKey.'</styleUrl>';
+			$kml[] = '<LineString>';
+
+			$kml[] = '<extrude>1</extrude>';
+        	$kml[] = '<tessellate>1</tessellate>';
+			$kml[] = '<altitudeMode>absolute</altitudeMode>';
+			
+			$kml[] = '<coordinates>';
+			
+			foreach($data['points'] as $aPoint){
+				if($aPoint['busLinesId'] == $busLineKey){
+					$kml[] = $aPoint['Longitude'] . ','  . $aPoint['Latitude'].',246.5';
+				}
+			}
+
+			$kml[] = '</coordinates>';
+
+			$kml[] = '</LineString>';
 			$kml[] = '</Placemark>';
 		}
 		
@@ -161,6 +199,9 @@
 		file_put_contents($fileOutputPath, $kmlOutput);
 	}
 	
+	/**
+	 * Remove accents and spaces from text
+	 */
 	function removeAccents($inputText){
 		$inputText = str_replace(" ", "", $inputText);
 		if ( !preg_match('/[\x80-\xff]/', $inputText) ){
