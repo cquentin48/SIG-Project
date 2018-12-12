@@ -1,4 +1,5 @@
 ﻿<?php
+	require_once("dijikstra.php");
 	$DEFAULT_FILE_PATH = "../KMLOutput/kmlFile.kml";
 	/**
 	* Import Data from mysqlDatabase
@@ -50,14 +51,48 @@
 		
 	}
 	
+	function convertDegToLambert($degArray){
+		$n = 0.7289686274;
+		$C = 11745793.39;
+		$e = 0.08248325676;
+		$Xs = 600000;
+		$Ys = 8199695.768;
+
+		  
+
+		$gamma0 = (3600*2)+(60*20)+14.025;
+		$gamma0 = $gamma0/(180*3600)*pi();
+
+		echo  "gamma0 : ".$gamma0."<br/>";
+		$lat = $degArray['Latitude']/(180*3600)*pi();
+		$lon = $degArray['Longitude']/(180*3600)*pi();
+		echo "Lat : ".$lat." Lon :".$lon."<br/>";
+
+		$L = 0.5*log((1+sin($lat))/(1-sin($lat)))-$e/2*log((1+$e*sin($lat))/(1-$e*sin($lat)));
+		$R = $C*exp(-1*$n*$L);
+		echo "L = ".$L."<br/>";
+		echo "R = ".$R."<br/>";
+		
+		$gamma = $n*($lon-$gamma0);
+
+		echo "Gamma =".$gamma."<br/>";
+		
+		$Lx = $Xs+($R*sin($gamma));
+		$Ly = $Ys-($R*cos($gamma));
+		echo "Lambert X:".$Lx;
+		echo "Lambert Y:".$Ly."<br/>";
+		$degArray['Latitude'] = $Lx;
+		$degArray['Longitude'] = $Ly;
+	}
+	
 	/**
 	* Database initialisation
 	* @return database initialised
 	*/
 	function initDatabase(){
-		$servername = "localhost";
+		$servername = "localhost:8889";
 		$username = "root";
-		$password = "";
+		$password = "root";
 		$dbname = "gsi";
 		try{
 			$bdd = new PDO('mysql:host='.$servername.';dbname='.$dbname.';charset=utf8', $username, $password);
@@ -66,6 +101,18 @@
 			die("Erreur :".$e->getMessage());
 			return null;
 		}
+	}
+
+	/**
+	 * Calcul distances between two points in the lambert format
+	 * @return distance between two points
+	 */
+	function calDistances($aPoint, $anotherPoint){
+		return (sqrt ( pow($aPoint['Latitude'],2)
+					  -pow($aPoint['Latitude'],2))
+			   +sqrt ( pow($aPoint['Longitude'],2)
+			   		  -pow($aPoint['Longitude'],2))			
+		);
 	}
 
 	/**
@@ -117,13 +164,13 @@
 		$busLinesColor[6] = "BA7EB1";		
 		$busLinesColor[7] = "F19315";		
 		$busLinesColor[21] = "94C36A";		
-		$busLinesColor[0] = "94C36A";		
+		$busLinesColor[0] = "000000";		
 		
 		$kml = array();
 		$kml[] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 		$kml[] = "<kml xmlns=\"http://earth.google.com/kml/2.1\"> ";
 		$kml[] = "<Document> ";
-		$kml[] = "<name>Sig Projects</name>";
+		$kml[] = "<name>Sig Project</name>";
 		$kml[] = "<description>Project done for the SIG lesson. Done by Noe Colin and Quentin CHAPEL</description>";
 		
 		foreach($busLines as $key => $aLineBus){
@@ -308,10 +355,41 @@
 
     $inputText = strtr($inputText, $chars);
 	}
+
+	function getNextElements($sigData, $pointId){
+		$nextPoints = [];
+		foreach($sigData['arcs'] as $key => $anArc){
+			if($anArc['Beginning'] == $pointId){
+				$sigData['Points']['Sucesseurs'][$key] = $sigData['points'][$anArc['Ending']];
+			}
+		}
+	}
+
+	function initDijkstra($arcArray){
+		foreach($arcArray as $anArc){
+			$anArc['ColorDijkstra'] = "red";
+			$anArc['DistanceDijkstra'] = -1;
+			$anArc['PredecesseursDijkstra'] = -1;
+		}
+	}
+
+	function initFirstCellDijkstra($anArc, $firstId){
+		$anArc[$firstId]['ColorDijkstra'] = "grey";
+		$anArc[$firstId]['DistanceDijkstra'] = 0;
+		$anArc[$firstId]['PredecesseursDijkstra'] = 0;
+	}
+
+	function dijkstra($sigData, $firstId){
+		initDijkstra($sigData['arc']);
+		
+	}
 	
 	$sigData = importData();
 	echo "<pre>";
 	print_r($sigData);
 	echo "</pre>";
 	generateKMLFile($sigData,$DEFAULT_FILE_PATH);
+	foreach($sigData['points'] as $aPoint){
+		convertDegToLambert($aPoint);
+	}
 ?> 
