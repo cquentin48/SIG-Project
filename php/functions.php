@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	/*if (!(typeof $_POST === 'undefined')) {
 		list($distances, $prev) = $g->paths_from($_POST['depart']);
 		$path = $g->paths_to($prev, $_POST['arrivee']);
@@ -102,18 +102,6 @@
 	}
 
 	/**
-	 * Calcul distances between two points in the lambert format
-	 * @return distance between two points
-	 */
-	function calDistances($aPoint, $anotherPoint){
-		return (sqrt ( pow($aPoint['Latitude'],2)
-					  -pow($aPoint['Latitude'],2))
-			   +sqrt ( pow($aPoint['Longitude'],2)
-			   		  -pow($aPoint['Longitude'],2))			
-		);
-	}
-
-	/**
 	* Execute query and return fetched data
 	* @return fetchedData
 	*/
@@ -208,10 +196,11 @@
 		
 		foreach($data['points'] as $pointKey => $aPoint) 
 		{
+			$busId = $pointKey+1;
 			$kmlStopId = removeAccents($aPoint['Nom']);
 			$kml[] = '<Placemark id="placemark' . $kmlStopId . '">';
 			$kml[] = '<name>' . $aPoint['Nom'] . '</name>';
-			$kml[] = '<description>Arrêt de bus n°'.$pointKey . "|" . $aPoint['Nom']. ' | ' . 'Ligne n°' . $aPoint['busLinesId'] . '</description>';
+			$kml[] = '<description>Arrêt de bus n°'.($busId) . "|" . $aPoint['Nom']. ' | ' . 'Ligne n°' . $aPoint['busLinesId'] . '</description>';
 			$kml[] = '<styleUrl>#busLineIcon'.$aPoint['busLinesId'].'</styleUrl>';
 			$kml[] = '<Point>';
 			$kml[] = '<coordinates>' . $aPoint['Longitude'] . ','  . $aPoint['Latitude'] . '</coordinates>';
