@@ -126,9 +126,6 @@
 	* @param data le tableau des points
 	*/
 	function generateKMLFile($data, $fileOutputPath){
-		echo "<pre>";
-		print_r($data);
-		echo "</pre>";
 		$busLines = array();
 		
 		$busLines[1] = 1;
@@ -427,20 +424,15 @@
 	 */
 	function filterPoints($filteredArrayPoints, $pointArray){
 		$filteredPointArray = array();
-		foreach($pointArray as $key => $aPoint){
-			foreach($filteredArrayPoints as $aFilteredPoint){
-				if($aFilteredPoint == $aPoint['Id'] || $aFilteredPoint['nom'] == getBusStopByName($pointArray,$aPoint)['nom']){
-					array_push($filteredPointArray,$aPoint);
-					break;
-				}
-			}
+		foreach($filteredArrayPoints as $key =>$value){
+			array_push($filteredPointArray,getBusStopByName($pointArray, $value));
 		}
 		return $filteredPointArray;
 	}
 	
 	function getBusStopByName($pointArray, $name){
 		foreach($pointArray as $aPoint){
-			if($aPoint['nom'] == $name){
+			if($aPoint['Nom'] == $name){
 				return $aPoint;
 			}
 		}
@@ -450,24 +442,20 @@
 	/**
 	 * Filter arcs from djikstra return
 	 */
-	function filterArcs($filteredArrayPoints, $sigData){
-		echo "<br/>";
+	function filterArcs($filteredArrayPoints){
 		$filteredArcArray = array();
-		$lastElement = end($sigData['arcs']);
+		$lastElement = end($filteredArrayPoints);
+		
 		foreach($filteredArrayPoints as $filterKey => $aFilteredPoint){
-			foreach($sigData['arcs'] as $key => $anArc){
-				if(!($aFilteredPoint===$lastElement)){
-					if($anArc['Beginning'] == $aFilteredPoint){
-						$nextIndex = $filterKey+1;
-						if($anArc['Ending'] == $filteredArrayPoints[$nextIndex]){
-							echo "Début : ".$anArc['Beginning'] . "<br/>";
-							echo "Fin : ".$anArc['Ending'] . "<br/>";
-							array_push($filteredArcArray,$anArc);
-						}
-					}
-				}
-			}
+			$nextElement = ($filteredArrayPoints[$filterKey+1] == $lastElement)?$filteredArrayPoints[$filterKey+1]:$lastElement;
+			$arcArray = array();
+			$arcArray['Beginning'] = $aFilteredPoint;
+			$arcArray['Ending'] = $nextElement;
+			$arcArray['Distance'] = $nextElement;
+			
+			$filteredArcArray[] = $arcArray;
 		}
+		
 		return $filteredArcArray;
 	}
 	
@@ -528,10 +516,11 @@
 	
 	$path = $graph->paths_to($prev, "Ferret");
 	$filteredSigData['points'] = filterPoints($path, $sigData['points']);
+	$filteredSigData['arcs'] = filterArcs($path, $sigData);
 	echo "<pre>";
 	print_r($path);
+	print_r($filteredSigData);
 	echo "</pre>";
-	$filteredSigData['arcs'] = filterArcs($path, $sigData);
 	generateKMLFile($filteredSigData,$DEFAULT_FILE_PATH);
 	foreach($sigData['points'] as $aPoint){
 		convertDegToLambert($aPoint);
