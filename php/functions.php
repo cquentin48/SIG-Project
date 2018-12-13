@@ -1,10 +1,15 @@
 ﻿<?php
+	/*if (!(typeof $_POST === 'undefined')) {
+		list($distances, $prev) = $g->paths_from($_POST['depart']);
+		$path = $g->paths_to($prev, $_POST['arrivee']);
+	}*/
+	require_once("dijikstra.php");
 	$DEFAULT_FILE_PATH = "../KMLOutput/kmlFile.kml";
 	/**
 	* Import Data from mysqlDatabase
 	* @return data from sql Database
 	*/
-	function importData(){
+	function importData($graph, $reversedGraph){
 		$database = initDatabase();
 		
 		$returnedData = executeQuery("Select *
@@ -20,6 +25,12 @@
 			$sigDataReturnedArray['Distance'] = $aResultData['GEO_ARC_DISTANCE'];
 			$sigDataReturnedArray['Sens'] = $aResultData['GEO_ARC_SENS'];
 			$sigArcDataArray[$aResultData['GEO_ARC_ID']] = $sigDataReturnedArray;
+			$graph->addedge($sigDataReturnedArray['Beginning'],
+						$sigDataReturnedArray['Ending'],
+						$sigDataReturnedArray['Distance']);
+			$reversedGraph->addedge($sigDataReturnedArray['Ending'],
+						$sigDataReturnedArray['Beginning'],
+						$sigDataReturnedArray['Distance']);
 		}
 		$sigData['arcs'] = $sigArcDataArray;
 		
@@ -35,6 +46,7 @@
 		$sigPointDataArray = array();
 		foreach($returnedData as $aResultData){
 			$sigDataReturnedArray = array();
+			$sigDataReturnedArray['Id'] = $aResultData['GEO_POI_ID'];
 			$sigDataReturnedArray['Nom'] = $aResultData['GEO_POI_NOM'];
 			$sigDataReturnedArray['Latitude'] = $aResultData['GEO_POI_LATITUDE'];
 			$sigDataReturnedArray['Longitude'] = $aResultData['GEO_POI_LONGITUDE'];
@@ -46,8 +58,29 @@
 		return $sigData;
 	}
 	
-	function djikestraAlgorithm(){
+	function convertDegToLambert($degArray){
+		$n = 0.7289686274;
+		$C = 11745793.39;
+		$e = 0.08248325676;
+		$Xs = 600000;
+		$Ys = 8199695.768;
+
+		$gamma0 = (3600*2)+(60*20)+14.025;
+		$gamma0 = $gamma0/(180*3600)*pi();
+		$lat = $degArray['Latitude']/(180*3600)*pi();
+		$lon = $degArray['Longitude']/(180*3600)*pi();
+
+		$L = 0.5*log((1+sin($lat))/(1-sin($lat)))-$e/2*log((1+$e*sin($lat))/(1-$e*sin($lat)));
+		$R = $C*exp(-1*$n*$L);
 		
+		$gamma = $n*($lon-$gamma0);
+
+		
+		$Lx = $Xs+($R*sin($gamma));
+		$Ly = $Ys-($R*cos($gamma));
+		
+		$degArray['Latitude'] = $Lx;
+		$degArray['Longitude'] = $Ly;
 	}
 	
 	/**
@@ -69,6 +102,18 @@
 	}
 
 	/**
+	 * Calcul distances between two points in the lambert format
+	 * @return distance between two points
+	 */
+	function calDistances($aPoint, $anotherPoint){
+		return (sqrt ( pow($aPoint['Latitude'],2)
+					  -pow($aPoint['Latitude'],2))
+			   +sqrt ( pow($aPoint['Longitude'],2)
+			   		  -pow($aPoint['Longitude'],2))			
+		);
+	}
+
+	/**
 	* Execute query and return fetched data
 	* @return fetchedData
 	*/
@@ -83,29 +128,36 @@
 	* @param data le tableau des points
 	*/
 	function generateKMLFile($data, $fileOutputPath){
+		echo "<pre>";
+		print_r($data);
+		echo "</pre>";
 		$busLines = array();
 		
-		$busLines[] = 1;
-		$busLines[] = 2;
-		$busLines[] = 3;
-		$busLines[] = 4;
-		$busLines[] = 5;
-		$busLines[] = 6;
-		$busLines[] = 7;
-		$busLines[] = 21;
-		$busLines[] = 0;
+		$busLines[1] = 1;
+		$busLines[2] = 2;
+		$busLines[3] = 3;
+		$busLines[4] = 4;
+		$busLines[5] = 5;
+		$busLines[6] = 6;
+		$busLines[7] = 7;
+		$busLines[21] = 21;
+		$busLines[0] = 0;
+		
+		$busLines = removeLines($data, $busLines);
 		
 		$busLinesIcon = array();
 		
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l1/90587-1-fre-FR/L1_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l2/90524-1-fre-FR/L2_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l3/90533-1-fre-FR/L3_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l4/90542-1-fre-FR/L4_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne/ligne-5a/87925-4-fre-FR/Ligne-5A_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l6/90560-1-fre-FR/L6_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l7/90569-1-fre-FR/L7_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l21/90578-1-fre-FR/L21_format_18x18.png";		
-		$busLinesIcon[] = "http://maps.google.com/mapfiles/kml/shapes/info_circle.png";	
+		$busLinesIcon[1] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l1/90587-1-fre-FR/L1_format_18x18.png";
+		$busLinesIcon[2] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l2/90524-1-fre-FR/L2_format_18x18.png";
+		$busLinesIcon[3] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l3/90533-1-fre-FR/L3_format_18x18.png";
+		$busLinesIcon[4] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l4/90542-1-fre-FR/L4_format_18x18.png";
+		$busLinesIcon[5] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne/ligne-5a/87925-4-fre-FR/Ligne-5A_format_18x18.png";
+		$busLinesIcon[6] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l6/90560-1-fre-FR/L6_format_18x18.png";
+		$busLinesIcon[7] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l7/90569-1-fre-FR/L7_format_18x18.png";
+		$busLinesIcon[21] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l21/90578-1-fre-FR/L21_format_18x18.png";		
+		$busLinesIcon[0] = "http://maps.google.com/mapfiles/kml/shapes/info_circle.png";	
+		
+		$busLinesIcon = removeLines($data, $busLinesIcon);
 		
 		$busLinesColor = array();
 		
@@ -117,21 +169,23 @@
 		$busLinesColor[6] = "BA7EB1";		
 		$busLinesColor[7] = "F19315";		
 		$busLinesColor[21] = "94C36A";		
-		$busLinesColor[0] = "94C36A";		
+		$busLinesColor[0] = "000000";	
+		
 		
 		$kml = array();
 		$kml[] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 		$kml[] = "<kml xmlns=\"http://earth.google.com/kml/2.1\"> ";
 		$kml[] = "<Document> ";
-		$kml[] = "<name>Sig Projects</name>";
+		$kml[] = "<name>Sig Project</name>";
 		$kml[] = "<description>Project done for the SIG lesson. Done by Noe Colin and Quentin CHAPEL</description>";
+		$busLinesColor = removeLines($data, $busLinesColor);
 		
-		foreach($busLines as $key => $aLineBus){
+		foreach($busLines as $busKey => $aLineBus){
 			$kml[] = '<Style id="busLineIcon'.$aLineBus.'">';
 			
 			$kml[] = '<IconStyle id="busLineIcon'.$aLineBus.'">';
 			$kml[] = '<Icon>';
-			$kml[] = '<href>'.$busLinesIcon[$key].'</href>';
+			$kml[] = '<href>'.$busLinesIcon[$busKey].'</href>';
 			$kml[] = '</Icon>';
 			$kml[] = '</IconStyle>';
 			
@@ -141,11 +195,11 @@
 			$kml[] = '<Style id="busLineColor'.$aLineBus.'">';
 			
 			$kml[] = '<LineStyle>';
-			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
+			$kml[] = '<color>'.$busLinesColor[$busKey].'</color>';
 			$kml[] = '<width>4</width>';
 			$kml[] = '</LineStyle>';
 			$kml[] = '<PolyStyle>';
-			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
+			$kml[] = '<color>'.$busLinesColor[$busKey].'</color>';
 			$kml[] = '<width>4</width>';
 			$kml[] = '</PolyStyle>';
 			
@@ -164,7 +218,6 @@
 			$kml[] = '</Point>';
 			$kml[] = '</Placemark>';
 		}
-		
 		foreach($busLinesColor as $busLineKey => $aLine) 
 		{
 			$kml[] = '<Placemark>';
@@ -194,9 +247,25 @@
 		$kml[] = '</Document>';
 		$kml[] = '</kml>';
 		$kmlOutput = implode("\n", $kml);
-		echo implode("<br/>", $kml);
 		
 		file_put_contents($fileOutputPath, $kmlOutput);
+	}
+	
+	function removeLines($sigData, $busLines){
+		$isFounded = false;
+		foreach($busLines as $key=>$aBusLine){
+			foreach($sigData['points'] as $aPoint){
+				if($key == $aPoint['busLinesId']){
+					$isFounded = true;
+					break;
+				}
+			}
+			if($isFounded == false){
+				unset($busLines[$key]);
+			}
+			$isFounded = false;
+		}
+		return $busLines;
 	}
 	
 	/**
@@ -308,10 +377,130 @@
 
     $inputText = strtr($inputText, $chars);
 	}
+
+	function getNextElements($sigData, $pointId){
+		$nextPoints = [];
+		foreach($sigData['arcs'] as $key => $anArc){
+			if($anArc['Beginning'] == $pointId){
+				$sigData['Points']['Sucesseurs'][$key] = $sigData['points'][$anArc['Ending']];
+			}
+		}
+	}
+
+	function initDijkstra($arcArray){
+		foreach($arcArray as $anArc){
+			$anArc['ColorDijkstra'] = "red";
+			$anArc['DistanceDijkstra'] = -1;
+			$anArc['PredecesseursDijkstra'] = -1;
+		}
+	}
+
+	/**
+	 * Filter points from djikstra return
+	 */
+	function filterPoints($filteredArrayPoints, $pointArray){
+		$filteredPointArray = array();
+		foreach($pointArray as $key => $aPoint){
+			foreach($filteredArrayPoints as $aFilteredPoint){
+				if($aFilteredPoint == $aPoint['Id']){
+					array_push($filteredPointArray,$aPoint);
+					break;
+				}
+			}
+		}
+		return $filteredPointArray;
+	}
+
+	/**
+	 * Filter arcs from djikstra return
+	 */
+	function filterArcs($filteredArrayPoints, $sigData){
+		echo "<br/>";
+		$filteredArcArray = array();
+		$lastElement = end($sigData['arcs']);
+		foreach($filteredArrayPoints as $filterKey => $aFilteredPoint){
+			foreach($sigData['arcs'] as $key => $anArc){
+				if(!($aFilteredPoint===$lastElement)){
+					if($anArc['Beginning'] == $aFilteredPoint){
+						$nextIndex = $filterKey+1;
+						if($anArc['Ending'] == $filteredArrayPoints[$nextIndex]){
+							echo "Début : ".$anArc['Beginning'] . "<br/>";
+							echo "Fin : ".$anArc['Ending'] . "<br/>";
+							array_push($filteredArcArray,$anArc);
+						}
+					}
+				}
+			}
+		}
+		return $filteredArcArray;
+	}
+
 	
-	$sigData = importData();
-	echo "<pre>";
+	function initFirstCellDijkstra($anArc, $firstId){
+		$anArc[$firstId]['ColorDijkstra'] = "grey";
+		$anArc[$firstId]['DistanceDijkstra'] = 0;
+		$anArc[$firstId]['PredecesseursDijkstra'] = 0;
+	}
+
+	function dijkstra($sigData, $firstId){
+		initDijkstra($sigData['arc']);
+		
+	}
+
+
+
+	function initGlobalVar($busLines, $busLinesIcon, $busLinesColor){
+		
+		$busLines[] = 1;
+		$busLines[] = 2;
+		$busLines[] = 3;
+		$busLines[] = 4;
+		$busLines[] = 5;
+		$busLines[] = 6;
+		$busLines[] = 7;
+		$busLines[] = 21;
+		$busLines[] = 0;
+		
+		
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l1/90587-1-fre-FR/L1_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l2/90524-1-fre-FR/L2_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l3/90533-1-fre-FR/L3_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l4/90542-1-fre-FR/L4_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne/ligne-5a/87925-4-fre-FR/Ligne-5A_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l6/90560-1-fre-FR/L6_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l7/90569-1-fre-FR/L7_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l21/90578-1-fre-FR/L21_format_18x18.png";		
+		$busLinesIcon[] = "http://maps.google.com/mapfiles/kml/shapes/info_circle.png";	
+		
+		$busLinesColor[1] = "0566A1";
+		$busLinesColor[2] = "E2392F";		
+		$busLinesColor[3] = "F9EA44";		
+		$busLinesColor[4] = "9AC138";		
+		$busLinesColor[5] = "2DBAEB";		
+		$busLinesColor[6] = "BA7EB1";		
+		$busLinesColor[7] = "F19315";		
+		$busLinesColor[21] = "94C36A";		
+		$busLinesColor[0] = "000000";	
+	}
+	$graph = new Graph();
+	$reversedGraph = new Graph();
+	$busLines = array();
+	$busLinesIcon = array();
+	$busLinesColor = array();
+	
+	$sigData = importData($graph, $reversedGraph);
+	list($distances, $prev) = $graph->paths_from(1);
+	
+	$path = $graph->paths_to($prev, 15);
+	print_r($path);
+	$filteredSigData['points'] = filterPoints($path, $sigData['points']);
+	$filteredSigData['arcs'] = filterArcs($path, $sigData);
+	generateKMLFile($filteredSigData,$DEFAULT_FILE_PATH);
+	/*echo "<pre>";
 	print_r($sigData);
-	echo "</pre>";
-	generateKMLFile($sigData,$DEFAULT_FILE_PATH);
+	echo "</pre>";*/
+	//generateKMLFile($sigData,$DEFAULT_FILE_PATH);
+	foreach($sigData['points'] as $aPoint){
+		convertDegToLambert($aPoint);
+	}
 ?> 

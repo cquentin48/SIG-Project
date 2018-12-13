@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://earth.google.com/kml/2.1"> 
 <Document> 
-<name>Sig Projects</name>
+<name>Sig Project</name>
 <description>Project done for the SIG lesson. Done by Noe Colin and Quentin CHAPEL</description>
 <Style id="busLineIcon1">
 <IconStyle id="busLineIcon1">
@@ -12,11 +12,11 @@
 </Style>
 <Style id="busLineColor1">
 <LineStyle>
-<color>94C36A</color>
+<color>000000</color>
 <width>4</width>
 </LineStyle>
 <PolyStyle>
-<color>94C36A</color>
+<color>000000</color>
 <width>4</width>
 </PolyStyle>
 </Style>
@@ -241,7 +241,7 @@
 <description>Arrêt de bus n°11|Jean Moulin | Ligne n°1</description>
 <styleUrl>#busLineIcon1</styleUrl>
 <Point>
-<coordinates>5.230115,46.210667</coordinates>
+<coordinates>2.230115,46.210667</coordinates>
 </Point>
 </Placemark>
 <Placemark id="placemark">
@@ -1967,7 +1967,7 @@
 5.234539,46.214268,246.5
 5.230887,46.212696,246.5
 5.230072,46.211655,246.5
-5.230115,46.210667,246.5
+2.230115,46.210667,246.5
 5.227554,46.207497,246.5
 5.220464,46.20768,246.5
 5.218618,46.203621,246.5
