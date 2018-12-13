@@ -240,6 +240,14 @@
 		file_put_contents($fileOutputPath, $kmlOutput);
 	}
 	
+	function calcDistance($arcData){
+		$totalDistance = 0;
+		foreach($arcData as $anArc){
+			$totalDistance += $anArc['Distance'];
+		}
+	}
+	
+	
 	function removeLines($sigData, $busLines){
 		$isFounded = false;
 		foreach($busLines as $key=>$aBusLine){
