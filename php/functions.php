@@ -5,7 +5,8 @@
 	* Import Data from mysqlDatabase
 	* @return data from sql Database
 	*/
-	function importData(){
+	
+	function importData($graph){
 		$database = initDatabase();
 		
 		$returnedData = executeQuery("Select *
@@ -21,6 +22,10 @@
 			$sigDataReturnedArray['Distance'] = $aResultData['GEO_ARC_DISTANCE'];
 			$sigDataReturnedArray['Sens'] = $aResultData['GEO_ARC_SENS'];
 			$sigArcDataArray[$aResultData['GEO_ARC_ID']] = $sigDataReturnedArray;
+
+			$graph->addedge($sigDataReturnedArray['Beginning'], 
+			$sigDataReturnedArray['Ending'], 
+			$sigDataReturnedArray['Distance']);
 		}
 		$sigData['arcs'] = $sigArcDataArray;
 		
@@ -245,6 +250,127 @@
 		
 		file_put_contents($fileOutputPath, $kmlOutput);
 	}
+
+	/////////////////////////////////////////
+
+	function generateFilteredKMLFile($data, $fileOutputPath){
+		$busLines = array();
+		
+		$busLines[] = 1;
+		$busLines[] = 2;
+		$busLines[] = 3;
+		$busLines[] = 4;
+		$busLines[] = 5;
+		$busLines[] = 6;
+		$busLines[] = 7;
+		$busLines[] = 21;
+		$busLines[] = 0;
+		
+		$busLinesIcon = array();
+		
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l1/90587-1-fre-FR/L1_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l2/90524-1-fre-FR/L2_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l3/90533-1-fre-FR/L3_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l4/90542-1-fre-FR/L4_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne/ligne-5a/87925-4-fre-FR/Ligne-5A_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l6/90560-1-fre-FR/L6_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l7/90569-1-fre-FR/L7_format_18x18.png";
+		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l21/90578-1-fre-FR/L21_format_18x18.png";		
+		$busLinesIcon[] = "http://maps.google.com/mapfiles/kml/shapes/info_circle.png";	
+		
+		$busLinesColor = array();
+		
+		$busLinesColor[1] = "0566A1";
+		$busLinesColor[2] = "E2392F";		
+		$busLinesColor[3] = "F9EA44";		
+		$busLinesColor[4] = "9AC138";		
+		$busLinesColor[5] = "2DBAEB";		
+		$busLinesColor[6] = "BA7EB1";		
+		$busLinesColor[7] = "F19315";		
+		$busLinesColor[21] = "94C36A";		
+		$busLinesColor[0] = "000000";		
+		
+		$kml = array();
+		$kml[] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+		$kml[] = "<kml xmlns=\"http://earth.google.com/kml/2.1\"> ";
+		$kml[] = "<Document> ";
+		$kml[] = "<name>Sig Project</name>";
+		$kml[] = "<description>Project done for the SIG lesson. Done by Noe Colin and Quentin CHAPEL</description>";
+		
+		foreach($busLines as $key => $aLineBus){
+			$kml[] = '<Style id="busLineIcon'.$aLineBus.'">';
+			
+			$kml[] = '<IconStyle id="busLineIcon'.$aLineBus.'">';
+			$kml[] = '<Icon>';
+			$kml[] = '<href>'.$busLinesIcon[$key].'</href>';
+			$kml[] = '</Icon>';
+			$kml[] = '</IconStyle>';
+			
+			$kml[] = '</Style>';
+
+
+			$kml[] = '<Style id="busLineColor'.$aLineBus.'">';
+			
+			$kml[] = '<LineStyle>';
+			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
+			$kml[] = '<width>4</width>';
+			$kml[] = '</LineStyle>';
+			$kml[] = '<PolyStyle>';
+			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
+			$kml[] = '<width>4</width>';
+			$kml[] = '</PolyStyle>';
+			
+			$kml[] = '</Style>';
+		}
+		
+		foreach($data['points'] as $pointKey => $aPoint) 
+		{
+			$kmlStopId = removeAccents($aPoint['Nom']);
+			$kml[] = '<Placemark id="placemark' . $kmlStopId . '">';
+			$kml[] = '<name>' . $aPoint['Nom'] . '</name>';
+			$kml[] = '<description>Arrêt de bus n°'.$pointKey . "|" . $aPoint['Nom']. ' | ' . 'Ligne n°' . $aPoint['busLinesId'] . '</description>';
+			$kml[] = '<styleUrl>#busLineIcon'.$aPoint['busLinesId'].'</styleUrl>';
+			$kml[] = '<Point>';
+			$kml[] = '<coordinates>' . $aPoint['Longitude'] . ','  . $aPoint['Latitude'] . '</coordinates>';
+			$kml[] = '</Point>';
+			$kml[] = '</Placemark>';
+		}
+		
+		foreach($busLinesColor as $busLineKey => $aLine) 
+		{
+			$kml[] = '<Placemark>';
+			$kml[] = '<name>Ligne n°'.$busLineKey.'</name>';
+			$kml[] = '<description>Ligne de bus n°'.$busLineKey.'</description>';
+			$kml[] = '<styleUrl>#busLineColor'.$busLineKey.'</styleUrl>';
+			$kml[] = '<LineString>';
+
+			$kml[] = '<extrude>1</extrude>';
+        	$kml[] = '<tessellate>1</tessellate>';
+			$kml[] = '<altitudeMode>absolute</altitudeMode>';
+			
+			$kml[] = '<coordinates>';
+			
+			foreach($data['points'] as $aPoint){
+				if($aPoint['busLinesId'] == $busLineKey){
+					$kml[] = $aPoint['Longitude'] . ','  . $aPoint['Latitude'].',246.5';
+				}
+			}
+
+			$kml[] = '</coordinates>';
+
+			$kml[] = '</LineString>';
+			$kml[] = '</Placemark>';
+		}
+		
+		$kml[] = '</Document>';
+		$kml[] = '</kml>';
+		$kmlOutput = implode("\n", $kml);
+		echo implode("<br/>", $kml);
+		
+		file_put_contents($fileOutputPath, $kmlOutput);
+	}
+
+	/////////////////////////////////////////
 	
 	/**
 	 * Remove accents and spaces from text
@@ -383,12 +509,18 @@
 		initDijkstra($sigData['arc']);
 		
 	}
-	
-	$sigData = importData();
+	$g = new Graph();
+	$sigData = importData($g);
+	$beginning = $_POST["depart"];
+	$ending = $_POST["arrivee"];
+	list($distances, $prev) = $g->paths_from($beginning);
+	$path = $g->paths_to($prev, $ending);
+
 	echo "<pre>";
 	print_r($sigData);
 	echo "</pre>";
-	generateKMLFile($sigData,$DEFAULT_FILE_PATH);
+	generateKMLFile($path,$DEFAULT_FILE_PATH);
+	//generateKMLFile($sigData,$DEFAULT_FILE_PATH);
 	foreach($sigData['points'] as $aPoint){
 		convertDegToLambert($aPoint);
 	}
