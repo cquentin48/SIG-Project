@@ -1,15 +1,15 @@
 ﻿<?php
-	if(isset($_POST)){
+	/*if (!(typeof $_POST === 'undefined')) {
 		list($distances, $prev) = $g->paths_from($_POST['depart']);
 		$path = $g->paths_to($prev, $_POST['arrivee']);
-	}
+	}*/
 	require_once("dijikstra.php");
 	$DEFAULT_FILE_PATH = "../KMLOutput/kmlFile.kml";
 	/**
 	* Import Data from mysqlDatabase
 	* @return data from sql Database
 	*/
-	function importData($graph){
+	function importData($graph, $reversedGraph){
 		$database = initDatabase();
 		
 		$returnedData = executeQuery("Select *
@@ -25,7 +25,10 @@
 			$sigDataReturnedArray['Distance'] = $aResultData['GEO_ARC_DISTANCE'];
 			$sigDataReturnedArray['Sens'] = $aResultData['GEO_ARC_SENS'];
 			$sigArcDataArray[$aResultData['GEO_ARC_ID']] = $sigDataReturnedArray;
-			$g->addedge($sigDataReturnedArray['Beginning'],
+			$graph->addedge($sigDataReturnedArray['Beginning'],
+						$sigDataReturnedArray['Ending'],
+						$sigDataReturnedArray['Distance']);
+			$reversedGraph->addedge($sigDataReturnedArray['Beginning'],
 						$sigDataReturnedArray['Ending'],
 						$sigDataReturnedArray['Distance']);
 		}
@@ -94,9 +97,9 @@
 	* @return database initialised
 	*/
 	function initDatabase(){
-		$servername = "localhost:8889";
+		$servername = "localhost";
 		$username = "root";
-		$password = "root";
+		$password = "";
 		$dbname = "gsi";
 		try{
 			$bdd = new PDO('mysql:host='.$servername.';dbname='.$dbname.';charset=utf8', $username, $password);
@@ -134,6 +137,9 @@
 	* @param data le tableau des points
 	*/
 	function generateKMLFile($data, $fileOutputPath){
+		echo "<pre>";
+		print_r($data);
+		echo "</pre>";
 		$busLines = array();
 		
 		$busLines[] = 1;
@@ -177,12 +183,12 @@
 		$kml[] = "<name>Sig Project</name>";
 		$kml[] = "<description>Project done for the SIG lesson. Done by Noe Colin and Quentin CHAPEL</description>";
 		
-		foreach($busLines as $key => $aLineBus){
+		foreach($busLines as $busKey => $aLineBus){
 			$kml[] = '<Style id="busLineIcon'.$aLineBus.'">';
 			
 			$kml[] = '<IconStyle id="busLineIcon'.$aLineBus.'">';
 			$kml[] = '<Icon>';
-			$kml[] = '<href>'.$busLinesIcon[$key].'</href>';
+			$kml[] = '<href>'.$busLinesIcon[$busKey].'</href>';
 			$kml[] = '</Icon>';
 			$kml[] = '</IconStyle>';
 			
@@ -192,11 +198,11 @@
 			$kml[] = '<Style id="busLineColor'.$aLineBus.'">';
 			
 			$kml[] = '<LineStyle>';
-			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
+			$kml[] = '<color>'.$busLinesColor[$busKey].'</color>';
 			$kml[] = '<width>4</width>';
 			$kml[] = '</LineStyle>';
 			$kml[] = '<PolyStyle>';
-			$kml[] = '<color>'.$busLinesColor[$key].'</color>';
+			$kml[] = '<color>'.$busLinesColor[$busKey].'</color>';
 			$kml[] = '<width>4</width>';
 			$kml[] = '</PolyStyle>';
 			
@@ -397,18 +403,27 @@
 	 * Filter arcs from djikstra return
 	 */
 	function filterArcs($filteredArrayPoints, $sigData){
+		echo "<br/>";
 		$filteredArcArray = array();
-		foreach($sigData['Arcs'] as $key => $anArc){
-			foreach($filteredArrayPoints as $filterKey => $aFilteredPoint){
-				if($filterKey<(sizeof($filteredArrayPoints)-1) && $aFilteredPoint == $anArc['Beginning'] && $sigData[$key+1]['Ending'] == $filteredArrayPoints[$filterKey+1]){
-					array_push($filteredPointArray,$anArc);
-					break;
+		$lastElement = end($sigData['arcs']);
+		foreach($filteredArrayPoints as $filterKey => $aFilteredPoint){
+			foreach($sigData['arcs'] as $key => $anArc){
+				if(!($aFilteredPoint===$lastElement)){
+					if($anArc['Beginning'] == $aFilteredPoint){
+						$nextIndex = $filterKey+1;
+						if($anArc['Ending'] == $filteredArrayPoints[$nextIndex]){
+							echo "Début : ".$anArc['Beginning'] . "<br/>";
+							echo "Fin : ".$anArc['Ending'] . "<br/>";
+							array_push($filteredArcArray,$anArc);
+						}
+					}
 				}
 			}
 		}
-		return $filteredPointArray;
+		return $filteredArcArray;
 	}
 
+	
 	function initFirstCellDijkstra($anArc, $firstId){
 		$anArc[$firstId]['ColorDijkstra'] = "grey";
 		$anArc[$firstId]['DistanceDijkstra'] = 0;
@@ -455,23 +470,24 @@
 		$busLinesColor[21] = "94C36A";		
 		$busLinesColor[0] = "000000";	
 	}
-	$g = new Graph();
+	$graph = new Graph();
+	$reversedGraph = new Graph();
 	$busLines = array();
 	$busLinesIcon = array();
 	$busLinesColor = array();
 	
-	$sigData = importData($g);
-	list($distances, $prev) = $g->paths_from(1);
+	$sigData = importData($graph, $reversedGraph);
+	list($distances, $prev) = $graph->paths_from(1);
 	
-	$path = $g->paths_to($prev, 15);
+	$path = $graph->paths_to($prev, 15);
+	print_r($path);
 	$filteredSigData['points'] = filterPoints($path, $sigData['points']);
-	echo "<pre>";
-	print_r($filteredPointArray);
-	echo "</pre>";
-	echo "<pre>";
+	$filteredSigData['arcs'] = filterArcs($path, $sigData);
+	generateKMLFile($filteredSigData,$DEFAULT_FILE_PATH);
+	/*echo "<pre>";
 	print_r($sigData);
-	echo "</pre>";
-	generateKMLFile($sigData,$DEFAULT_FILE_PATH);
+	echo "</pre>";*/
+	//generateKMLFile($sigData,$DEFAULT_FILE_PATH);
 	foreach($sigData['points'] as $aPoint){
 		convertDegToLambert($aPoint);
 	}
