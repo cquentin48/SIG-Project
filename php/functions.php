@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	/*if (!(typeof $_POST === 'undefined')) {
 		list($distances, $prev) = $g->paths_from($_POST['depart']);
 		$path = $g->paths_to($prev, $_POST['arrivee']);
@@ -25,11 +25,13 @@
 			$sigDataReturnedArray['Distance'] = $aResultData['GEO_ARC_DISTANCE'];
 			$sigDataReturnedArray['Sens'] = $aResultData['GEO_ARC_SENS'];
 			$sigArcDataArray[$aResultData['GEO_ARC_ID']] = $sigDataReturnedArray;
-			$graph->addedge($sigDataReturnedArray['Beginning'],
-						$sigDataReturnedArray['Ending'],
+			$beginName = addToDjikestra($database,$aResultData['GEO_ARC_DEB']);
+			$endingName = addToDjikestra($database,$aResultData['GEO_ARC_FIN']);
+			$graph->addedge($beginName,
+						$endingName,
 						$sigDataReturnedArray['Distance']);
-			$reversedGraph->addedge($sigDataReturnedArray['Ending'],
-						$sigDataReturnedArray['Beginning'],
+			$reversedGraph->addedge($endingName,
+						$beginName,
 						$sigDataReturnedArray['Distance']);
 		}
 		$sigData['arcs'] = $sigArcDataArray;
@@ -56,6 +58,14 @@
 		$sigData['points'] = $sigPointDataArray;
 		
 		return $sigData;
+	}
+	
+	/**
+	* Return the name from its id
+	*/
+	function addToDjikestra($dbb, $id){
+		$returnedData = executeQuery("SELECT `GEO_POI_NOM` FROM `geo_point` WHERE `GEO_POI_ID` = '$id'", $dbb);
+		return $returnedData[0]['GEO_POI_NOM'];
 	}
 	
 	function convertDegToLambert($degArray){
@@ -247,7 +257,6 @@
 		}
 	}
 	
-	
 	function removeLines($sigData, $busLines){
 		$isFounded = false;
 		foreach($busLines as $key=>$aBusLine){
@@ -420,13 +429,22 @@
 		$filteredPointArray = array();
 		foreach($pointArray as $key => $aPoint){
 			foreach($filteredArrayPoints as $aFilteredPoint){
-				if($aFilteredPoint == $aPoint['Id']){
+				if($aFilteredPoint == $aPoint['Id'] || $aFilteredPoint['nom'] == getBusStopByName($pointArray,$aPoint)['nom']){
 					array_push($filteredPointArray,$aPoint);
 					break;
 				}
 			}
 		}
 		return $filteredPointArray;
+	}
+	
+	function getBusStopByName($pointArray, $name){
+		foreach($pointArray as $aPoint){
+			if($aPoint['nom'] == $name){
+				return $aPoint;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -452,7 +470,6 @@
 		}
 		return $filteredArcArray;
 	}
-
 	
 	function initFirstCellDijkstra($anArc, $firstId){
 		$anArc[$firstId]['ColorDijkstra'] = "grey";
@@ -464,8 +481,6 @@
 		initDijkstra($sigData['arc']);
 		
 	}
-
-
 
 	function initGlobalVar($busLines, $busLinesIcon, $busLinesColor){
 		
@@ -500,6 +515,7 @@
 		$busLinesColor[21] = "94C36A";		
 		$busLinesColor[0] = "000000";	
 	}
+
 	$graph = new Graph();
 	$reversedGraph = new Graph();
 	$busLines = array();
@@ -507,17 +523,16 @@
 	$busLinesColor = array();
 	
 	$sigData = importData($graph, $reversedGraph);
-	list($distances, $prev) = $graph->paths_from(1);
 	
-	$path = $graph->paths_to($prev, 15);
-	print_r($path);
+	list($distances, $prev) = $graph->paths_from('Revermont');
+	
+	$path = $graph->paths_to($prev, "Ferret");
 	$filteredSigData['points'] = filterPoints($path, $sigData['points']);
+	echo "<pre>";
+	print_r($path);
+	echo "</pre>";
 	$filteredSigData['arcs'] = filterArcs($path, $sigData);
 	generateKMLFile($filteredSigData,$DEFAULT_FILE_PATH);
-	/*echo "<pre>";
-	print_r($sigData);
-	echo "</pre>";*/
-	//generateKMLFile($sigData,$DEFAULT_FILE_PATH);
 	foreach($sigData['points'] as $aPoint){
 		convertDegToLambert($aPoint);
 	}
