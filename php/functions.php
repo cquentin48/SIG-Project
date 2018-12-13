@@ -375,13 +375,34 @@
     $inputText = strtr($inputText, $chars);
 	}
 
-	function getNextElements($sigData, $pointId){
+	function getNextElements($pointArray, $pointId, $actualDistance){
 		$nextPoints = [];
 		foreach($sigData['arcs'] as $key => $anArc){
 			if($anArc['Beginning'] == $pointId){
-				$sigData['Points']['Sucesseurs'][$key] = $sigData['points'][$anArc['Ending']];
+				$nextPoints['countSuccesseurs'] = $nextPoints['countSuccesseurs']+1;
+				$nextPoints['Points']['Sucesseurs'][$key] = $sigData['points'][$anArc['Ending']];
+				$nexPoints['successeurs'] = array();
+				$nextPoint['distance'] = $actualDistance+$sigData['points']['Distance'];
 			}
 		}
+	}
+	
+	function getBestDistance($pointArray, $countArray){
+		if($pointArray != null){
+			array_push($countArray, getBestDistance($pointArray['successeurs'], $countArray));
+		}else{
+			return $countArray['distance'];
+		}
+	}
+	
+	function getBestDistanceFromArray($pointArray){
+		$bestDistance = pointArray[0]['distance'];
+		foreach($pointArray as $aPoint){
+			if($aPoint['distance']<$bestDistance){
+				$bestDistance = $$aPoint['distance'];
+			}
+		}
+		return $bestDistance;
 	}
 
 	function initDijkstra($arcArray){
