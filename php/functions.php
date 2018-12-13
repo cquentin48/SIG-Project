@@ -28,8 +28,8 @@
 			$graph->addedge($sigDataReturnedArray['Beginning'],
 						$sigDataReturnedArray['Ending'],
 						$sigDataReturnedArray['Distance']);
-			$reversedGraph->addedge($sigDataReturnedArray['Beginning'],
-						$sigDataReturnedArray['Ending'],
+			$reversedGraph->addedge($sigDataReturnedArray['Ending'],
+						$sigDataReturnedArray['Beginning'],
 						$sigDataReturnedArray['Distance']);
 		}
 		$sigData['arcs'] = $sigArcDataArray;
@@ -65,29 +65,20 @@
 		$Xs = 600000;
 		$Ys = 8199695.768;
 
-		  
-
 		$gamma0 = (3600*2)+(60*20)+14.025;
 		$gamma0 = $gamma0/(180*3600)*pi();
-
-		echo  "gamma0 : ".$gamma0."<br/>";
 		$lat = $degArray['Latitude']/(180*3600)*pi();
 		$lon = $degArray['Longitude']/(180*3600)*pi();
-		echo "Lat : ".$lat." Lon :".$lon."<br/>";
 
 		$L = 0.5*log((1+sin($lat))/(1-sin($lat)))-$e/2*log((1+$e*sin($lat))/(1-$e*sin($lat)));
 		$R = $C*exp(-1*$n*$L);
-		echo "L = ".$L."<br/>";
-		echo "R = ".$R."<br/>";
 		
 		$gamma = $n*($lon-$gamma0);
 
-		echo "Gamma =".$gamma."<br/>";
 		
 		$Lx = $Xs+($R*sin($gamma));
 		$Ly = $Ys-($R*cos($gamma));
-		echo "Lambert X:".$Lx;
-		echo "Lambert Y:".$Ly."<br/>";
+		
 		$degArray['Latitude'] = $Lx;
 		$degArray['Longitude'] = $Ly;
 	}
@@ -142,27 +133,31 @@
 		echo "</pre>";
 		$busLines = array();
 		
-		$busLines[] = 1;
-		$busLines[] = 2;
-		$busLines[] = 3;
-		$busLines[] = 4;
-		$busLines[] = 5;
-		$busLines[] = 6;
-		$busLines[] = 7;
-		$busLines[] = 21;
-		$busLines[] = 0;
+		$busLines[1] = 1;
+		$busLines[2] = 2;
+		$busLines[3] = 3;
+		$busLines[4] = 4;
+		$busLines[5] = 5;
+		$busLines[6] = 6;
+		$busLines[7] = 7;
+		$busLines[21] = 21;
+		$busLines[0] = 0;
+		
+		$busLines = removeLines($data, $busLines);
 		
 		$busLinesIcon = array();
 		
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l1/90587-1-fre-FR/L1_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l2/90524-1-fre-FR/L2_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l3/90533-1-fre-FR/L3_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l4/90542-1-fre-FR/L4_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne/ligne-5a/87925-4-fre-FR/Ligne-5A_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l6/90560-1-fre-FR/L6_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l7/90569-1-fre-FR/L7_format_18x18.png";
-		$busLinesIcon[] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l21/90578-1-fre-FR/L21_format_18x18.png";		
-		$busLinesIcon[] = "http://maps.google.com/mapfiles/kml/shapes/info_circle.png";	
+		$busLinesIcon[1] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l1/90587-1-fre-FR/L1_format_18x18.png";
+		$busLinesIcon[2] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l2/90524-1-fre-FR/L2_format_18x18.png";
+		$busLinesIcon[3] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l3/90533-1-fre-FR/L3_format_18x18.png";
+		$busLinesIcon[4] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l4/90542-1-fre-FR/L4_format_18x18.png";
+		$busLinesIcon[5] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne/ligne-5a/87925-4-fre-FR/Ligne-5A_format_18x18.png";
+		$busLinesIcon[6] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l6/90560-1-fre-FR/L6_format_18x18.png";
+		$busLinesIcon[7] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l7/90569-1-fre-FR/L7_format_18x18.png";
+		$busLinesIcon[21] = "http://tub-bourg.fr/var/ezwebin_site/storage/images/mediatheque/images/picto-ligne-18x18/l21/90578-1-fre-FR/L21_format_18x18.png";		
+		$busLinesIcon[0] = "http://maps.google.com/mapfiles/kml/shapes/info_circle.png";	
+		
+		$busLinesIcon = removeLines($data, $busLinesIcon);
 		
 		$busLinesColor = array();
 		
@@ -174,7 +169,8 @@
 		$busLinesColor[6] = "BA7EB1";		
 		$busLinesColor[7] = "F19315";		
 		$busLinesColor[21] = "94C36A";		
-		$busLinesColor[0] = "000000";		
+		$busLinesColor[0] = "000000";	
+		
 		
 		$kml = array();
 		$kml[] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
@@ -182,6 +178,7 @@
 		$kml[] = "<Document> ";
 		$kml[] = "<name>Sig Project</name>";
 		$kml[] = "<description>Project done for the SIG lesson. Done by Noe Colin and Quentin CHAPEL</description>";
+		$busLinesColor = removeLines($data, $busLinesColor);
 		
 		foreach($busLines as $busKey => $aLineBus){
 			$kml[] = '<Style id="busLineIcon'.$aLineBus.'">';
@@ -221,7 +218,6 @@
 			$kml[] = '</Point>';
 			$kml[] = '</Placemark>';
 		}
-		
 		foreach($busLinesColor as $busLineKey => $aLine) 
 		{
 			$kml[] = '<Placemark>';
@@ -251,9 +247,25 @@
 		$kml[] = '</Document>';
 		$kml[] = '</kml>';
 		$kmlOutput = implode("\n", $kml);
-		echo implode("<br/>", $kml);
 		
 		file_put_contents($fileOutputPath, $kmlOutput);
+	}
+	
+	function removeLines($sigData, $busLines){
+		$isFounded = false;
+		foreach($busLines as $key=>$aBusLine){
+			foreach($sigData['points'] as $aPoint){
+				if($key == $aPoint['busLinesId']){
+					$isFounded = true;
+					break;
+				}
+			}
+			if($isFounded == false){
+				unset($busLines[$key]);
+			}
+			$isFounded = false;
+		}
+		return $busLines;
 	}
 	
 	/**
